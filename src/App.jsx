@@ -4,6 +4,7 @@ import MemoryForm from './components/MemoryForm';
 import MemoryGallery from './components/MemoryGallery';
 import Navbar from './components/Navbar';
 import { fetchMemories } from './services/api';
+import { Outlet } from 'react-router';
 
 function App() {
   const [memories, setMemories] = useState([]);
@@ -36,7 +37,7 @@ function App() {
 
   return (
     <div className="App min-h-screen bg-gray-50">
-      <Navbar />
+      {/* <Navbar /> */}
       
       <main className="container mx-auto px-4 py-8">
         <div className="flex justify-between items-center mb-8">
@@ -69,6 +70,7 @@ function App() {
           <MemoryGallery memories={memories} setMemories={setMemories} />
         )}
       </main>
+     
     </div>
   );
 }

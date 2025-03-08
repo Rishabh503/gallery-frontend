@@ -1,7 +1,7 @@
 const API_URL = 'http://localhost:5000/api';
 
 export const fetchMemories = async () => {
-  const response = await fetch(`${API_URL}/memories`);
+  const response = await fetch(`https://gallery-back-2.onrender.com/api/memories`);
   if (!response.ok) {
     throw new Error('Failed to fetch memories');
   }
@@ -9,7 +9,7 @@ export const fetchMemories = async () => {
 };
 
 export const createMemory = async (formData) => {
-  const response = await fetch(`${API_URL}/memories`, {
+  const response = await fetch(`https://gallery-back-2.onrender.com/api/memories`, {
     method: 'POST',
     body: formData,
   });
