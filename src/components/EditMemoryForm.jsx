@@ -94,7 +94,7 @@ function EditMemoryForm({ memory, onUpdate, onCancel }) {
         <div className="mb-4">
           <label className="block text-gray-700 font-medium mb-2">Special?</label>
           <input
-            type="boolean"
+            type="text"
             name="special"
             value={formData.special}
             onChange={handleChange}
