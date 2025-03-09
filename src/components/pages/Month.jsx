@@ -42,7 +42,7 @@ export const Month = () => {
   return (
 
     <section>Month ,{monthdId.monthId} 
-        <div className='grid gap-5 items-center content-center grid-cols-5'>
+        <div className='grid gap-5 items-center content-center grid-cols-1 sm:grid-cols-5'>
         {
           filtered.map((day,i)=>(
               <div className='p-3 flex flex-col items-center  bg-green-200 rounded-lg shadow-md'>
