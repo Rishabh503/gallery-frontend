@@ -11,9 +11,12 @@ function Navbar() {
             Memories
             </span>
          </div>
-            <div className='flex gap-4'>
+            <div className='flex flex-wrap gap-4'>
               <NavLink to='/my'>
                   View
+              </NavLink>
+              <NavLink to='/groupBackend'>
+                  groupb
               </NavLink>
               <NavLink to='/group'>
                   group

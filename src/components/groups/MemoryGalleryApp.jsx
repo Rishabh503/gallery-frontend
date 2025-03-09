@@ -139,6 +139,7 @@ export const MemoryGalleryApp = () => {
       return memories;
     } else {
       const group = groups.find(g => g._id === activeGroupId);
+      console.log(group)
       if (!group) return [];
       return memories.filter(memory => group.memoryIds.includes(memory._id));
     }
@@ -340,7 +341,8 @@ export const MemoryGalleryApp = () => {
                 
                 {/* Selection indicator */}
                 {selectedMemories.includes(memory._id) && (
-                  <div className="absolute top-2 left-2 bg-blue-500 text-white w-6 h-6 flex items-center justify-center rounded-full shadow-md">
+                  <div className="absolute top-2 left-2 bg-blue-500 text-white w-6 h-6 flex items-center justify-center rounded-full shadow-md"
+                  >
                     ✓
                   </div>
                 )}
