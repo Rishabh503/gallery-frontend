@@ -15,6 +15,12 @@ function Navbar() {
               <NavLink to='/my'>
                   View
               </NavLink>
+              <NavLink to='/speical'>
+                  Speical
+              </NavLink>
+              <NavLink to='/months'>
+                  Months
+              </NavLink>
               <NavLink to='/editByRishabh'>
                   Add
               </NavLink>
