@@ -6,6 +6,7 @@ function MemoryForm({ onMemoryAdded }) {
     title: '',
     date: '',
     description: '',
+    special:''
   });
   const [image, setImage] = useState(null);
   const [preview, setPreview] = useState('');
@@ -34,7 +35,7 @@ function MemoryForm({ onMemoryAdded }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     
-    if (!memory.title || !memory.date || !memory.description || !image) {
+    if (!memory.title || !memory.date || !memory.description || !image || !memory.special) {
       setError('Please fill in all fields and select an image');
       return;
     }
@@ -47,13 +48,14 @@ function MemoryForm({ onMemoryAdded }) {
       formData.append('title', memory.title);
       formData.append('date', memory.date);
       formData.append('description', memory.description);
+      formData.append('special', memory.special);
       formData.append('image', image);
       
       const newMemory = await createMemory(formData);
       onMemoryAdded(newMemory);
       
       // Reset form
-      setMemory({ title: '', date: '', description: '' });
+      setMemory({ title: '', date: '', description: '',special:'' });
       setImage(null);
       setPreview('');
     } catch (err) {
@@ -89,6 +91,16 @@ function MemoryForm({ onMemoryAdded }) {
             type="date"
             name="date"
             value={memory.date}
+            onChange={handleChange}
+            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+          />
+        </div>
+        <div className="mb-4">
+          <label className="block text-gray-700 font-medium mb-2">Special?</label>
+          <input
+            type="boolean"
+            name="special"
+            value={memory.special}
             onChange={handleChange}
             className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
           />

@@ -29,7 +29,7 @@ export const createMemory = async (formData) => {
 // Update your src/services/api.js with these new functions
 
 export const deleteMemory = async (id) => {
-  const response = await fetch(`${API_URL}/memories/${id}`, {
+  const response = await fetch(`https://gallery-back-2.onrender.com/api/memories/${id}`, {
     method: 'DELETE',
   });
   
@@ -41,7 +41,7 @@ export const deleteMemory = async (id) => {
 };
 
 export const updateMemory = async (id, formData) => {
-  const response = await fetch(`${API_URL}/memories/${id}`, {
+  const response = await fetch(`https://gallery-back-2.onrender.com/api/memories/${id}`, {
     method: 'PUT',
     body: formData,
   });

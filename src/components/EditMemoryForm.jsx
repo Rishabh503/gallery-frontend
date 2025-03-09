@@ -5,7 +5,8 @@ function EditMemoryForm({ memory, onUpdate, onCancel }) {
   const [formData, setFormData] = useState({
     title: memory.title,
     date: memory.date.substring(0, 10), // Format date as YYYY-MM-DD
-    description: memory.description
+    description: memory.description,
+    special:memory.special
   });
   const [image, setImage] = useState(null);
   const [preview, setPreview] = useState('');
@@ -34,7 +35,7 @@ function EditMemoryForm({ memory, onUpdate, onCancel }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     
-    if (!formData.title || !formData.date || !formData.description) {
+    if (!formData.title || !formData.date || !formData.description || !formData.special) {
       setError('Title, date, and description are required');
       return;
     }
@@ -47,6 +48,7 @@ function EditMemoryForm({ memory, onUpdate, onCancel }) {
       data.append('title', formData.title);
       data.append('date', formData.date);
       data.append('description', formData.description);
+      data.append('speical', formData.special);
       
       if (image) {
         data.append('image', image);
@@ -84,6 +86,17 @@ function EditMemoryForm({ memory, onUpdate, onCancel }) {
             type="text"
             name="title"
             value={formData.title}
+            onChange={handleChange}
+            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+            placeholder="Enter a title for your memory"
+          />
+        </div>
+        <div className="mb-4">
+          <label className="block text-gray-700 font-medium mb-2">Special?</label>
+          <input
+            type="boolean"
+            name="special"
+            value={formData.special}
             onChange={handleChange}
             className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
             placeholder="Enter a title for your memory"
