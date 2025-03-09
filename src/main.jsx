@@ -9,11 +9,13 @@ import AllPhotos from './components/my/AllPhotos.jsx'
 import { Months } from './components/pages/Months.jsx'
 import { Month } from './components/pages/Month.jsx'
 import { Special } from './components/pages/Special.jsx'
+import MemoryGalleryApp from './components/groups/MemoryGalleryApp.jsx'
 
 const router=createBrowserRouter(
   createRoutesFromElements(
     <Route path='/' element={<Front/>}>
       <Route path='/my' element={<AllPhotos/>}/>
+      <Route path='/group' element={<MemoryGalleryApp/>}/>
       <Route path='/speical' element={<Special/>}/>
       <Route path='/months' element={<Months/>}/>
       <Route path='/month/:monthId' element={<Month/>}/>

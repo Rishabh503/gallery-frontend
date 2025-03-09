@@ -15,6 +15,9 @@ function Navbar() {
               <NavLink to='/my'>
                   View
               </NavLink>
+              <NavLink to='/group'>
+                  group
+              </NavLink>
               <NavLink to='/speical'>
                   Speical
               </NavLink>
