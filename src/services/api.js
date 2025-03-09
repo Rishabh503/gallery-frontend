@@ -52,3 +52,87 @@ export const updateMemory = async (id, formData) => {
   
   return response.json();
 };
+
+// Group-related API methods
+
+export const fetchGroups = async () => {
+  const response = await fetch(`https://gallery-back-2.onrender.com/api/groups`);
+  if (!response.ok) {
+    throw new Error('Failed to fetch groups');
+  }
+  return response.json();
+};
+
+export const createGroup = async (groupData) => {
+  const response = await fetch(`https://gallery-back-2.onrender.com/api/groups`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(groupData),
+  });
+  
+  if (!response.ok) {
+    throw new Error('Failed to create group');
+  }
+  
+  return response.json();
+};
+
+export const updateGroup = async (id, groupData) => {
+  const response = await fetch(`https://gallery-back-2.onrender.com/api/groups/${id}`, {
+    method: 'PUT',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(groupData),
+  });
+  
+  if (!response.ok) {
+    throw new Error('Failed to update group');
+  }
+  
+  return response.json();
+};
+
+export const deleteGroup = async (id) => {
+  const response = await fetch(`https://gallery-back-2.onrender.com/api/groups/${id}`, {
+    method: 'DELETE',
+  });
+  
+  if (!response.ok) {
+    throw new Error('Failed to delete group');
+  }
+  
+  return response.json();
+};
+
+// Additional memory methods for group functionality
+
+export const addMemoriesToGroup = async (groupId, memoryIds) => {
+  const group = await fetchGroupById(groupId);
+  const updatedMemoryIds = [...new Set([...group.memoryIds, ...memoryIds])];
+  
+  return updateGroup(groupId, {
+    ...group,
+    memoryIds: updatedMemoryIds
+  });
+};
+
+export const removeMemoryFromGroup = async (groupId, memoryId) => {
+  const group = await fetchGroupById(groupId);
+  const updatedMemoryIds = group.memoryIds.filter(id => id !== memoryId);
+  
+  return updateGroup(groupId, {
+    ...group,
+    memoryIds: updatedMemoryIds
+  });
+};
+
+export const fetchGroupById = async (id) => {
+  const response = await fetch(`https://gallery-back-2.onrender.com/api/groups/${id}`);
+  if (!response.ok) {
+    throw new Error('Failed to fetch group');
+  }
+  return response.json();
+};

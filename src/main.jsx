@@ -9,7 +9,8 @@ import AllPhotos from './components/my/AllPhotos.jsx'
 import { Months } from './components/pages/Months.jsx'
 import { Month } from './components/pages/Month.jsx'
 import { Special } from './components/pages/Special.jsx'
-import MemoryGalleryApp from './components/groups/MemoryGalleryApp.jsx'
+import { MemoryGalleryApp } from './components/groups/MemoryGalleryApp.jsx'
+// import MemoryGalleryApp from './components/groups/MemoryGalleryApp.jsx'
 
 const router=createBrowserRouter(
   createRoutesFromElements(
