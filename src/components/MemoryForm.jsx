@@ -52,6 +52,7 @@ function MemoryForm({ onMemoryAdded }) {
       formData.append('image', image);
       
       const newMemory = await createMemory(formData);
+      console.log(newMemory)
       onMemoryAdded(newMemory);
       
       // Reset form

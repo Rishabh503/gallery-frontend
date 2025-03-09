@@ -70,7 +70,8 @@ function MemoryDetail({ memory, onClose, onDelete, onUpdate }) {
           
           <h2 className="text-2xl font-bold mb-2">{memory.title}</h2>
           <p className="text-gray-600 mb-4">{new Date(memory.date).toLocaleDateString()}</p>
-          <p className="text-gray-800">{memory.description}</p>
+          <p className="text-gray-800">{memory.description}</p> 
+          <p className="text-gray-800">{memory.special}</p> 
           <p className="text-gray-500 text-sm mt-4">Added on {new Date(memory.createdAt).toLocaleString()}</p>
           
           <div className="mt-6 flex space-x-3">
