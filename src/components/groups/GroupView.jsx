@@ -48,10 +48,10 @@ export const GroupView = () => {
     <section className='sm:flex-row flex-col justify-between'>
         <div className='sm:pl-20 sm:pr-10 sm:pt-12 sm:mb-20 p-4'>
             <div className='border  rounded-md'>
-                <button onClick={()=>(setActiveGroupId("all"))}  className='font-semibold text-xl pb-2'>Memoriesss</button>
+                <button onClick={()=>(setActiveGroupId("all"))}  className='font-semibold text-xl pl-4 pb-2'>Memoriesss</button>
                 {groups.length>0?
                 groups.map((group)=>(
-                    <div className='pl-4 py-1 text-start text-xl shadow-md'>
+                    <div className='pl-4 py-1 font-semibold text-start text-xl shadow-md'>
                     <button onClick={()=>setActiveGroupId(group._id)} className=' rounded-md'>
                     <p className=''>{group.name}</p>
                         </button> 
@@ -82,7 +82,7 @@ export const GroupView = () => {
                 </div>
           </div>
 
-        <div className="flex-1">
+        <div className="flex-1 p-4">
           <h2 className="text-2xl font-semibold mb-4">
             {activeGroupId === 'all' 
               ? 'All Memories' 
@@ -90,10 +90,10 @@ export const GroupView = () => {
           </h2>
           
           {/* Memories grid */}
-          <div className={
+          <div  className={
             displayMode === 'grid'
               ? 'grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4'
-              : 'columns-1 sm:columns-2 lg:columns-3 gap-4'
+              : 'columns-1 sm:columns-2 lg:columns-3 gap-4' 
           }>
             {getDisplayMemories().map(memory => (
               <div 
@@ -103,7 +103,7 @@ export const GroupView = () => {
                   ${selectedMemories.includes(memory._id) ? 'ring-2 ring-blue-500' : ''}
                   ${displayMode === 'masonry' ? 'break-inside-avoid' : ''}
                 `}
-                onClick={() => toggleMemorySelection(memory._id)}
+               //
               >
                 <img 
                   src={memory.imageUrl} 

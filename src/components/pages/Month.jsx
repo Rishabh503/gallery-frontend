@@ -41,18 +41,22 @@ export const Month = () => {
       console.log("lets see",filtered)
   return (
 
-    <section>Month ,{monthdId.monthId} 
+    <section>
         <div className='grid gap-5 items-center content-center grid-cols-1 sm:grid-cols-5'>
+         
         {
           filtered.map((day,i)=>(
-              <div className='p-3 flex flex-col items-center  bg-green-200 rounded-lg shadow-md'>
-                  <p className='font-semibold text-lg'>
+              <div className='p-3 relative h-auto w-full flex flex-col gap-4 items-start   '>
+                  
+                       <img className=' rounded-xl className="w-full h-auto object-cover" ' src={day.imageUrl}/>
+                     <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-5 text-white">
+                     <p className='font-semibold sm:text-lg text-2xl'>
                     {day.title}
                   </p>
-                       <img className='h-64 w-48 rounded-md contain object-cover' src={day.imageUrl}/>
-                       <p>
+                        <p className="text-md sm:text-xs mt-1 line-clamp-2 opacity-80">
                     {day.description}
                   </p>
+                     </div>
               </div>
 
           ))

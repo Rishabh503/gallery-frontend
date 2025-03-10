@@ -36,7 +36,7 @@ export function Months() {
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-br from-pink-50 to-rose-100 p-12">
       <h1 className="text-6xl font-extrabold text-rose-700 mb-12 tracking-wide">Romantic Calendar</h1>
-      <div className="grid grid-cols-4 gap-8 w-full max-w-5xl p-6 bg-white shadow-lg rounded-3xl border border-rose-200">
+      <div className="grid sm:grid-cols-4 gap-8 w-full max-w-5xl p-6 bg-white shadow-lg rounded-3xl border border-rose-200">
         {months.map((month, index) => (
           <motion.button
             key={index}
